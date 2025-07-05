@@ -36,13 +36,9 @@ static void send_data(uint8_t data) {
 }
 
 static void wait() {
-  printf("Checking BUSY...\n");
   while(gpio_get_level(PIN_BUSY)) {
-    printf("BUSY 1...\n");
     vTaskDelay(pdMS_TO_TICKS(100));
   }
-  printf("BUSY 0...\n");
-  fflush(stdout);
 }
 
 static void reset() {
